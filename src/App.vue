@@ -30,7 +30,10 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss">
+@import "@/assets/scss/index.scss";
+@import '~bulma-helpers/css/bulma-helpers.min.css';
+
 /* #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
