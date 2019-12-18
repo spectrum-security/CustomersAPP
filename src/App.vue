@@ -18,11 +18,15 @@ export default {
 
   created() {
     this.handleWindowHeight()
+    
+    document.addEventListener ("resize", this.handleWindowHeight())
   },
 
   methods: {
     handleWindowHeight() {
+      
       this.windowHeight = window.innerHeight
+     
     }
   }
 }
