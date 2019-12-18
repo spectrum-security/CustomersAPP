@@ -1,22 +1,21 @@
 <template >
   <div class="login">
-    <section margin>
-      <img src="../assets/logo SD.svg" alt="" height="170" width="170">
-      <h1 class="title is-3">Spectrum</h1>
-    </section>
     <section>
-      <h1 class="title is-4" style="padding-top: 30%">LogIn</h1>
-      <b-field>
-        <b-input type="email" placeholder="Email" rounded></b-input>
+      <img src="../assets/logoLogin.svg" alt="" class="logo" height="170" width="170">
+    </section>
+    <section style="padding-top: 20%">
+
+      <b-field label="Email">
+        <b-input type="email"></b-input>
       </b-field>
-      <b-field>
-        <b-input type="password" placeholder="Password" style="padding-top: 3%" rounded password-reveal></b-input>
+      <b-field label="Password">
+        <b-input type="password" password-reveal></b-input>
       </b-field>
-      <b-field style="padding-top: 15%">
-        <b-button type="is-light" class="btnLogin"  rounded expanded>LogIn</b-button>
+      <b-field style="padding-top: 20%">
+        <b-button type="is-light" class="btnLogin" expanded><b>LogIn</b></b-button>
       </b-field>
       <b-field style="padding-top: 3%">
-        <b-button type="is-light" class="btnSignup"  outlined rounded expanded>Criar conta</b-button>
+        <b-button type="is-light" class="btnSignup"  outlined  expanded><b>SignUp</b></b-button>
       </b-field>
     </section>
   </div>
@@ -24,23 +23,35 @@
 
 
 
-<style scoped>
+<style>
 .login {
   padding-top: 20%;
   padding-bottom: 20%;
-  margin-left: 20%;
-  margin-right: 20%;
-  color: white;
-  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  
+  
+}
+
+.logo{
+  display: block;
+  margin: auto
+}
+
+.label{
+  color: white !important;
+  
 }
 
 .btnLogin {
-  background-color: #2699FB;
-  color: white
+  background-color: #F8640D !important;
+  color: white !important
 }
 
 .btnSignup {
   color: white !important
-}
+}   
+
+
 </style>
 

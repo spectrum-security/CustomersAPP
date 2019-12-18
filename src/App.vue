@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{minHeight: windowHeight + 'px'}">
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -7,6 +7,28 @@
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      windowHeight: 0,
+    }
+  },
+
+  created() {
+    this.handleWindowHeight()
+  },
+
+  methods: {
+    handleWindowHeight() {
+      this.windowHeight = window.innerHeight
+    }
+  }
+}
+
+</script>
+
 
 <style>
 /* #app {
@@ -30,8 +52,10 @@
   color: #42b983;
 } */
 
-/* #app {
-  background-color: #90BAEC;
-  height: 100%
-} */
+#app {
+  background-color: #343434;
+  
+} 
 </style>
+
+
