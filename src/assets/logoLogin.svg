@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="341.3523150547392" width="348">
+  <defs>
+    <path id="path-2" opacity="1" fill-rule="evenodd" d="M127.94118235294118 136.4606705547392L160.17647960784313 116.29400055473921L160.17647960784313 2.352315054739222L273.00002 68.90232605473922L228.6764862745098 94.11066355473922L265.94854872549024 118.31066755473923L265.94854872549024 176.7940105547392L206.51471941176473 209.0606825547392L206.51471941176473 107.21899905473921L175.28677519607842 125.36900205473921L175.28677519607845 244.3523550547392L67.5 176.7940105547392L105.77941549019607 148.5606725547392L67.5 125.36900205473921L67.5 62.85232505473923L127.94118235294118 26.552319054739222"/>
+    <path id="path-3" opacity="1" fill-rule="evenodd" d="M220.61766196078432 105.2023320547392L220.61766196078432 185.8690120547392L253.86031225490197 168.72734255473918L253.86031225490197 125.3690020547392L220.61766196078432 105.2023320547392Z"/>
+    <path id="path-4" opacity="1" fill-rule="evenodd" d="M89.6617668627452 175.78567705473915L160.17647960784325 134.44400355473914L160.17647960784325 216.11901705473912L89.6617668627452 175.78567705473915Z"/>
+    <path id="path-5" opacity="1" fill-rule="evenodd" d="M174.27942215686272 25.54398555473901L174.27942215686272 108.227332554739L244.79413490196077 67.893992554739L174.27942215686272 25.54398555473901Z"/>
+    <path id="path-7" opacity="1" fill-rule="evenodd" d="M81.60294254901928 70.91899305473925L112.83088676470555 52.76899005473925L112.83088676470555 135.45233705473925L81.60294254901928 118.31066755473924L81.60294254901928 70.91899305473925Z"/>
+  </defs>
+  <g opacity="1">
+    <rect fill="rgb(52,52,52)" fill-opacity="1" opacity="1" x="0" y="2.352315054739222" width="348" height="339"/>
+    <g opacity="1">
+      <use xlink:href="#path-2" fill="rgb(248,100,13)" fill-opacity="1"/>
+      <use xlink:href="#path-2" fill-opacity="0" stroke="rgb(248,100,13)" stroke-opacity="1" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"/>
+    </g>
+    <g opacity="1">
+      <use xlink:href="#path-3" fill="rgb(52,52,52)" fill-opacity="1"/>
+      <use xlink:href="#path-3" fill-opacity="0" stroke="rgb(248,100,13)" stroke-opacity="1" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"/>
+    </g>
+    <g opacity="1">
+      <use xlink:href="#path-4" fill="rgb(52,52,52)" fill-opacity="1"/>
+      <use xlink:href="#path-4" fill-opacity="0" stroke="rgb(248,100,13)" stroke-opacity="1" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"/>
+    </g>
+    <g opacity="1">
+      <use xlink:href="#path-5" fill="rgb(52,52,52)" fill-opacity="1"/>
+      <use xlink:href="#path-5" fill-opacity="0" stroke="rgb(248,100,13)" stroke-opacity="1" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"/>
+    </g>
+    <g>
+      <text opacity="1" font-size="0" transform="translate(0, 271.3523150547392)">
+        <tspan fill="rgb(255,255,255)" font-size="65" font-family="Codec Cold Trial" font-weight="700" style="white-space: pre;text-transform: none" x="0" y="51">SPECTRUM</tspan>
+      </text>
+    </g>
+    <g opacity="1">
+      <use xlink:href="#path-7" fill="rgb(52,52,52)" fill-opacity="1"/>
+      <use xlink:href="#path-7" fill-opacity="0" stroke="rgb(248,100,13)" stroke-opacity="1" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"/>
+    </g>
+  </g>
+</svg>
