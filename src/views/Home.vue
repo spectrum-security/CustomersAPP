@@ -9,9 +9,12 @@
       <div class="box">
         <p>ola</p>
       </div>
-      <h5 class="subtitle is-5 has-padding-top-30">Offices</h5>
-      
+      <h5 class="subtitle is-5 has-padding-top-30">Offices</h5>      
     </div>
+    <div class="scrollmenu">
+   <img class="scrollimg" src="../assets/office.png"/>
+   <img src="../assets/office.png"/>
+</div>
   </div>
 </template>
 
@@ -35,6 +38,25 @@
 
 .box {
   height: 200px;
+}
+
+div.scrollmenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu img {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
 }
 </style>
 
