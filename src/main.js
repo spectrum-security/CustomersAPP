@@ -6,6 +6,7 @@ import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 import "./registerServiceWorker";
 
+
 Vue.use(Buefy);
 Vue.config.productionTip = false;
 

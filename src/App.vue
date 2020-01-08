@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="{minHeight: windowHeight + 'px'}">
+  <div id="app" :style="{ minHeight: windowHeight + 'px' }">
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -12,31 +12,28 @@
 export default {
   data() {
     return {
-      windowHeight: 0,
-    }
+      windowHeight: 0
+    };
   },
 
   created() {
-    this.handleWindowHeight()
-    
-    document.addEventListener ("resize", this.handleWindowHeight())
+    this.handleWindowHeight();
+
+    document.addEventListener("resize", this.handleWindowHeight());
   },
 
   methods: {
     handleWindowHeight() {
-      
-      this.windowHeight = window.innerHeight
-     
+      this.windowHeight = window.innerHeight;
     }
   }
-}
-
+};
 </script>
-
 
 <style lang="scss">
 @import "@/assets/scss/index.scss";
-@import '~bulma-helpers/css/bulma-helpers.min.css';
+@import "~bulma-helpers/css/bulma-helpers.min.css";
+ 
 
 /* #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -61,8 +58,5 @@ export default {
 
 #app {
   background-color: #343434;
-  
-} 
+}
 </style>
-
-
