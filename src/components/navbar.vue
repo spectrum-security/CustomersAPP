@@ -34,6 +34,7 @@
   bottom: 0;
   width: 100%;
   background: white;
+  z-index: 2
 }
 
 ul {
