@@ -3,6 +3,9 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Office from "../views/Office.vue";
+import Calendar from "../views/Calendar.vue";
+import Sensors from "../views/Sensors.vue";
+import Profile from "../views/Profile.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +24,21 @@ const routes = [
     path: "/office",
     name: "office",
     component: Office
+  },
+  {
+    path: "/calendar",
+    name: "calendar",
+    component: Calendar
+  },
+  {
+    path: "/sensors",
+    name: "sensors",
+    component: Sensors
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    component: Profile
   }
 ];
 

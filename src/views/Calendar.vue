@@ -1,9 +1,9 @@
 <template>
-  <div class="profile">
+  <div class="calendar">
     <navbar/>
     <div class="margin">
       <div class="has-padding-top-30 has-padding-bottom-50 center">
-        <h3 class="title is-4">Profile</h3>
+        <h3 class="title is-4">Calendar</h3>
       </div>
       
     </div>
@@ -35,7 +35,7 @@
 import navbar from "@/components/navbar.vue";
 
 export default {
-  name: "profile",
+  name: "calendar",
   components: {
     navbar
   }
