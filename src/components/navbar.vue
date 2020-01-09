@@ -3,24 +3,24 @@
     <div id="fixme">
       <ul>
         <li class="width">
-          <a>
+          <router-link class="navlink" :to="{name: 'home'}">
             <i class="fas fa-shield-alt fa-2x"></i>
-          </a>
+          </router-link>
         </li>
         <li class="width">
-          <a>
+          <router-link class="navlink" :to="{name: 'calendar'}">
             <i class="far fa-calendar-alt fa-2x"></i>
-          </a>
+          </router-link>
         </li>
         <li class="width">
-          <a>
+          <router-link class="navlink" :to="{name: 'sensors'}">
             <i class="fas fa-fingerprint fa-2x"></i>
-          </a>
+          </router-link>
         </li>
         <li class="width">
-          <a>
+          <router-link class="navlink" :to="{name: 'profile'}">
             <i class="fas fa-user fa-2x"></i>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -54,9 +54,13 @@ li {
   text-align: center;
 }
 
+.navlink {
+  /* color: blue */
+}
 
 </style>
 
 <script>
 export default {};
 </script>
+
