@@ -59,4 +59,14 @@ export default {
 #app {
   background-color: #F2F2F2;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.noBar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.noBar {
+    -ms-overflow-style: none;
+}
 </style>
