@@ -9,7 +9,7 @@
       <div class="box">
         <p>ola</p>
       </div>
-      <h5 class="subtitle is-5 has-padding-top-30">Offices</h5>      
+      <h5 class="subtitle is-5 has-padding-top-30">Offices</h5>
     </div>
     <div class="scrollmenu">
    <img class="scrollimg" src="../assets/office.png"/>
@@ -29,11 +29,11 @@
 }
 
 .title {
-  color: white
+  color: black
 }
 
 .subtitle {
-  color: white
+  color: black
 }
 
 .box {
@@ -41,7 +41,6 @@
 }
 
 div.scrollmenu {
-  background-color: #333;
   overflow: auto;
   white-space: nowrap;
 }

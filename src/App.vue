@@ -33,7 +33,7 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/index.scss";
 @import "~bulma-helpers/css/bulma-helpers.min.css";
- 
+
 
 /* #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -57,6 +57,6 @@ export default {
 } */
 
 #app {
-  background-color: #343434;
+  background-color: #F2F2F2;
 }
 </style>

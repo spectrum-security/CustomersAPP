@@ -5,7 +5,7 @@
       <div class="has-padding-top-30 has-padding-bottom-50 center">
         <h3 class="title is-4">Calendar</h3>
       </div>
-      
+
     </div>
   </div>
 </template>
@@ -21,11 +21,11 @@
 }
 
 .title {
-  color: white
+  color: black
 }
 
 .subtitle {
-  color: white
+  color: black
 }
 
 </style>
