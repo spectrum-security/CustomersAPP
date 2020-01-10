@@ -4,14 +4,14 @@
       <div class="has-padding-top-30 has-padding-bottom-50 center officeTitle">
         <h3 class="title is-4">Second Floor </h3>
       </div>
-      <div class="scrollmenu months">
+      <div class="scrollmenu months noBar">
   <button class="button is-rounded" v-for="month in months" :key="month">{{month}}</button>
 </div>
 
-<div class="scrollmenu">
+<div class="scrollmenu noBar">
   <a href="" v-for="day in days" :key="day">{{day}}</a>
 </div>
-<div class="margin lineContainer">
+<div class="margin lineContainer noBar">
   <div class="timeline">
 
     <div class="container left">

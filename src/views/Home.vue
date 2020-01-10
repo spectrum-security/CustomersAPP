@@ -11,7 +11,7 @@
       </div>
       <h5 class="subtitle is-5 has-padding-top-30">Offices</h5>
     </div>
-    <div class="scrollmenu">
+    <div class="scrollmenu noBar">
    <img class="scrollimg" src="../assets/office.png"/>
    <img src="../assets/office.png"/>
 </div>
