@@ -42,11 +42,11 @@
 }
 
 .label {
-  color: white !important;
+  color: rgba(0,0,0, 0.35) !important;
 }
 
 .btnLogin {
-  background-color: #f8640d !important;
+  background-color: #1374F2!important;
   color: white !important;
 }
 
