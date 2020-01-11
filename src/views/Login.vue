@@ -13,7 +13,7 @@
       <b-field label="Email">
         <b-input type="email"></b-input>
       </b-field>
-      <b-field label="Password">
+      <b-field label="Password" class="has-padding-top-5">
         <b-input type="password" password-reveal></b-input>
       </b-field>
       <b-field class="has-padding-top-30">

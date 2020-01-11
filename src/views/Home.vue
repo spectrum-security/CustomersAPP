@@ -2,14 +2,14 @@
   <div class="home">
     <navbar/>
     <div class="margin">
-      <div class="has-padding-top-30 has-padding-bottom-50 center">
+      <div class="has-padding-top-30 has-padding-bottom-40 center">
         <h3 class="title is-4">Security Status</h3>
       </div>
       <h5 class="subtitle is-5">Report</h5>
       <div class="box">
         <p>ola</p>
       </div>
-      <h5 class="subtitle is-5 has-padding-top-30">Offices</h5>
+      <h5 class="subtitle is-5 has-padding-top-20">Offices</h5>
     </div>
     <div class="scrollmenu noBar">
    <img class="scrollimg" src="../assets/office.png"/>
