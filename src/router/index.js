@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
+import Office from "../views/Office.vue";
 import Calendar from "../views/Calendar.vue";
 import Sensors from "../views/Sensors.vue";
 import Profile from "../views/Profile.vue";
@@ -19,6 +20,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login
+  },
+  {
+    path: "/office",
+    name: "office",
+    component: Office
   },
   {
     path: "/calendar",
@@ -39,10 +45,11 @@ const routes = [
     path: "/signup",
     name: "signup",
     component: Signup
-  },
+  }
 ];
 
 const router = new VueRouter({
+  mode: "history",
   routes
 });
 
