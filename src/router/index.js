@@ -5,6 +5,7 @@ import Login from "../views/Login.vue";
 import Calendar from "../views/Calendar.vue";
 import Sensors from "../views/Sensors.vue";
 import Profile from "../views/Profile.vue";
+import Signup from "../views/Signup.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/profile",
     name: "profile",
     component: Profile
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: Signup
   },
 ];
 
