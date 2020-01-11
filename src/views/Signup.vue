@@ -16,15 +16,11 @@
       <b-field label="Password" class="has-padding-top-5">
         <b-input type="password" password-reveal></b-input>
       </b-field>
-      <b-field class="has-padding-top-30">
-        <b-button type="is-light" class="btnLogin" expanded
-          ><b>LogIn</b></b-button
-        >
+      <b-field label="Confirm Password" class="has-padding-top-5">
+        <b-input type="password" password-reveal></b-input>
       </b-field>
-      <b-field class="has-padding-top-5 has-padding-bot-75">
-        <b-button type="is-light" class="btnSignup" outlined expanded
-          ><b>SignUp</b></b-button
-        >
+      <b-field class="has-padding-top-30">
+        <b-button type="is-light" class="btnSignin" expanded><b>SignIn</b></b-button>
       </b-field>
     </section>
   </div>
@@ -42,15 +38,13 @@
 }
 
 .label {
-  color: rgba(0,0,0, 0.35) !important;
-}
-
-.btnLogin {
-  background-color: #1374F2!important;
   color: white !important;
 }
 
-.btnSignup {
+.btnSignin {
+  background-color: #f8640d !important;
   color: white !important;
 }
+
+
 </style>

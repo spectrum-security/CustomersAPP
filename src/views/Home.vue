@@ -11,6 +11,10 @@
       </div>
       <h5 class="subtitle is-5 has-padding-top-20">Offices</h5>
     </div>
+    <div class="scrollmenu noBar">
+   <img class="scrollimg" src="../assets/office.png"/>
+   <img src="../assets/office.png"/>
+</div>
   </div>
 </template>
 
@@ -25,18 +29,34 @@
 }
 
 .title {
-  color: white
+  color: black
 }
 
 .subtitle {
-  color: white
+  color: black
 }
 
 .box {
   height: 200px;
 }
 
+div.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+}
 
+div.scrollmenu img {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
 </style>
 
 <script>
