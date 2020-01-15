@@ -56,7 +56,7 @@ li {
 }
 
 .navlink {
-  /* color: blue */
+   color: #1374F2 
 }
 
 </style>

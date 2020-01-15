@@ -69,4 +69,9 @@ export default {
 .noBar {
     -ms-overflow-style: none;
 }
+
+input:focus {
+  border-color: #1374F2 !important;
+  border-bottom-color: #1374F2 !important
+}
 </style>

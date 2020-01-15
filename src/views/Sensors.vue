@@ -15,8 +15,8 @@
       <p><strong>Status:</strong> <strong class="active">Active</strong></p>
       <strong>Last Maintenance:</strong>
       <p><time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time></p>
-      <p><button class="button is-rounded is-link">Show Activity</button></p>
-      <button class="button is-rounded is-link">Schedule Maintenance</button>
+      <p><button class="button is-rounded is-spectrum_blue">Show Activity</button></p>
+      <button class="button is-rounded is-spectrum_blue">Schedule Maintenance</button>
     </div>
   </div>
 </div>

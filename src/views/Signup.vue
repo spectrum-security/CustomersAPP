@@ -26,7 +26,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .login {
   margin-left: 10%;
   margin-right: 10%;
