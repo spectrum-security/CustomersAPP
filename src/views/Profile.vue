@@ -1,63 +1,85 @@
 <template>
   <div class="profile">
-    <navbar/>
+    <navbar />
     <div v-if="!editing" class="margin">
       <div class="has-padding-top-30 has-padding-bottom-50 center">
         <h3 class="title is-4">Profile</h3>
       </div>
 
-          <div class="has-padding-bottom-20 center">
-        <img class="profilePic" src="../assets/profile-placeholder.jpg"/>
-        <div class="bottom-right"><a @click="editProfile"><i class="fas fa-cog fa-2x"></i></a></div>
-
+      <div class="has-padding-bottom-20 center">
+        <img class="profilePic" src="../assets/profile-placeholder.jpg" />
+        <div class="bottom-right">
+          <a @click="editProfile"><i class="fas fa-cog fa-2x"></i></a>
+        </div>
       </div>
 
       <div class="center">
-        <h5 class="subtitle is-4">{{name}}</h5>
-        <h5 class="position is-4 has-padding-bottom-20">CEO of Company X</h5>
+        <h5 class="subtitle is-4">{{ firstName }} {{lastName}}</h5>
       </div>
 
-       <div class="has-padding-top-20 center">
-        <i class="fas fa-phone"></i><h5 class="subtitle is-4">Phone Number</h5>
-        <h5 class="position is-4">{{phone}}</h5>
+      <div class="has-padding-top-20 center">
+        <i class="fas fa-phone"></i>
+        <h5 class="subtitle is-4">Phone Number</h5>
+        <h5 class="position is-4">{{ phone }}</h5>
       </div>
 
-        <div class="has-padding-top-30 center">
-          <i class="fas fa-envelope"></i>
+      <div class="has-padding-top-30 center">
+        <i class="fas fa-envelope"></i>
         <h5 class="subtitle is-4">Email</h5>
-        <h5 class="position is-4">{{email}}</h5>
+        <h5 class="position is-4">{{ email }}</h5>
       </div>
-
     </div>
 
-  <div v-if="editing" class="margin">
-     <div class="has-padding-top-30 has-padding-bottom-50 center">
+    <div v-if="editing" class="margin">
+      <div class="has-padding-top-30 has-padding-bottom-50 center">
         <h3 class="title is-4">Profile</h3>
       </div>
 
-          <div class="has-padding-bottom-20 center">
-        <img class="profilePic" src="../assets/profile-placeholder.jpg"/>
+      <div class="has-padding-bottom-20 center">
+        <img class="profilePic" src="../assets/profile-placeholder.jpg" />
       </div>
 
-      <div class="center">
-        <input class="input is-rounded" type="text" name="name" v-model="name">
+      <div class="center is-flex-mobile">
+
+        <input
+          class="input is-rounded"
+          type="text"
+          name="name"
+          v-model="firstName"
+        />
+        <input
+          class="input is-rounded"
+          type="text"
+          name="name"
+          v-model="lastName"
+        />
       </div>
 
-       <div class="has-padding-top-20 center">
+      <div class="has-padding-top-20 center">
         <h5 class="subtitle is-4">Phone Number</h5>
-        <input class="input is-rounded" type="text" name="number" v-model="phone">
+        <input
+          class="input is-rounded"
+          type="text"
+          name="number"
+          v-model="phone"
+        />
       </div>
 
-        <div class="has-padding-top-30 center">
+      <div class="has-padding-top-30 center">
         <h5 class="subtitle is-4">Email</h5>
-        <input class="input is-rounded" type="text" name="email" v-model="email">
+        <input
+          class="input is-rounded"
+          type="text"
+          name="email"
+          v-model="email"
+        />
       </div>
-        <div class="has-padding-top-30 center">
-      <button class="button is-link is-rounded" @click="saveProfile">Save</button>
-        </div>
-  </div>
-
-
+      <div class="has-padding-top-30 center">
+        <button class="button is-link is-rounded" @click="saveProfile">
+          Save
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -103,6 +125,7 @@
 <script>
 // @ is an alias to /src
 import navbar from "@/components/navbar.vue";
+import axios from "axios";
 
 export default {
   name: "profile",
@@ -113,9 +136,10 @@ export default {
   data: function() {
     return {
       editing: false,
-      name: "John Doe",
-      phone: "911111111",
-      email: "ceo@email.com"
+      firstName: this.$store.state.user.name.first,
+      lastName: this.$store.state.user.name.last,
+      phone: this.$store.state.user.phone,
+      email: this.$store.state.user.email
     };
   },
 
@@ -125,6 +149,21 @@ export default {
     },
 
     saveProfile() {
+      axios
+        .put("http://localhost:3000/users/" + this.$store.state.user._id, {
+          name: {
+            first: this.firstName,
+            last: this.lastName
+          },
+          email: this.email,
+          phone: this.phone
+        })
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          throw err;
+        });
       this.editing = false;
     }
   }
