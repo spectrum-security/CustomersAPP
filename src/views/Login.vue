@@ -17,20 +17,20 @@
         <b-input type="password" password-reveal></b-input>
       </b-field>
       <b-field class="has-padding-top-30">
-        <b-button type="is-light" class="btnLogin" expanded
+        <b-button type="is-spectrum_blue" class="btnLogin" expanded
           ><b>LogIn</b></b-button
         >
       </b-field>
-      <b-field class="has-padding-top-5 has-padding-bot-75">
-        <b-button type="is-light" class="btnSignup" outlined expanded
+      <!-- <b-field class="has-padding-top-5 has-padding-bot-75">
+        <b-button type="is-spectrum_blue" class="btnSignup" outlined expanded
           ><b>SignUp</b></b-button
         >
-      </b-field>
+      </b-field> -->
     </section>
   </div>
 </template>
 
-<style>
+<style scoped>
 .login {
   margin-left: 10%;
   margin-right: 10%;
@@ -46,11 +46,11 @@
 }
 
 .btnLogin {
-  background-color: #1374F2!important;
+ 
   color: white !important;
 }
 
-.btnSignup {
+/* .btnSignup {
   color: white !important;
-}
+} */
 </style>
