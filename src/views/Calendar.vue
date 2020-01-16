@@ -6,42 +6,47 @@
         <h3 class="title is-4">Calendar</h3>
       </div>
       <FunctionalCalendar
-      class="has-padding-bottom-20"
+        class="has-padding-bottom-20"
         @choseDay="dateClick"
+        :limits="{ min: today, max: max }"
         :is-multiple-date-picker="datePicker"
         :key="datePicker"
         :marked-dates="markedDates"
         v-model="calendarData"
       ></FunctionalCalendar>
-      <center><b-button
-        type="is-spectrum_blue"
-        v-if="schedule == true && confirm == false"
-        @click="pickDate"
-        >Schedule Maintenance
-      </b-button></center>
-      <center><b-button
-        type="is-spectrum_blue"
-        v-if="schedule == false && confirm == true"
-        @click="pickDate"
-        >Confirm
-      </b-button></center>
+      <center>
+        <b-button
+          type="is-spectrum_blue"
+          v-if="schedule == true && confirm == false"
+          @click="pickDate"
+          >Schedule Maintenance
+        </b-button>
+      </center>
+      <center>
+        <b-button
+          type="is-spectrum_blue"
+          v-if="schedule == false && confirm == true"
+          @click="pickDate"
+          >Confirm
+        </b-button>
+      </center>
       <!-- <b-button
         type="is-spectrum_blue"
 
         >Unschedule Maintenance
       </b-button> -->
-      <div class="lineContainer noBar has-padding-top-20" v-if="markedDates.length > 0">
-<div class="card">
-  <div class="card-content">
-      <p v-for="(day, index) in datesPickedFinal" :key="index">
-        Maintenence schedule day {{ day.date }}
-      </p>
-  </div>
-</div>
+      <div
+        class="lineContainer noBar has-padding-top-20"
+        v-if="markedDates.length > 0"
+      >
+        <div class="card">
+          <div class="card-content">
+            <p v-for="(day, index) in datesPickedFinal" :key="index">
+              Maintenence schedule day {{ day.date }}
+            </p>
+          </div>
+        </div>
       </div>
-      <b-button type="is-spectrum_blue" class="plusButton">
-        <i class="fas fa-plus"></i>
-      </b-button>
     </div>
   </div>
 </template>
@@ -84,6 +89,7 @@
 // @ is an alias to /src
 import navbar from "@/components/navbar.vue";
 import { FunctionalCalendar } from "vue-functional-calendar";
+import moment from "moment";
 
 export default {
   name: "calendar",
@@ -103,12 +109,13 @@ export default {
       days: [],
       cont: 0,
       flag: true,
-      today: "16/1/2020"
+      today: moment().format('D/M/YYYY'),
+      max: moment().add(6,'months').format('D/M/YYYY')
     };
   },
 
   created() {
-    //console.log(this.calendarData);
+    console.log(this.max);
   },
 
   methods: {
