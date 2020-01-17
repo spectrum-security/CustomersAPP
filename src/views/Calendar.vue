@@ -1,6 +1,6 @@
 <template>
   <div class="calendar">
-    <navbar />
+    <navbar/>
     <div class="margin">
       <div class="has-padding-top-30 has-padding-bottom-50 center">
         <h3 class="title is-4">Calendar</h3>
@@ -19,34 +19,52 @@
           type="is-spectrum_blue"
           v-if="schedule == true && confirm == false"
           @click="pickDate"
-          >Schedule Maintenance
-        </b-button>
+        >Schedule Maintenance</b-button>
       </center>
       <center>
         <b-button
           type="is-spectrum_blue"
           v-if="schedule == false && confirm == true"
           @click="pickDate"
-          >Confirm
-        </b-button>
+        >Confirm</b-button>
       </center>
-      <!-- <b-button
-        type="is-spectrum_blue"
-
-        >Unschedule Maintenance
-      </b-button> -->
-      <div
-        class="lineContainer noBar has-padding-top-20"
-        v-if="markedDates.length > 0"
-      >
+      <!-- <div class="lineContainer noBar has-padding-top-20" v-if="markedDates.length > 0">
         <div class="card">
           <div class="card-content">
-            <p v-for="(day, index) in datesPickedFinal" :key="index">
-              Maintenence schedule day {{ day.date }}
-            </p>
+            <div v-for="(day, index) in datesPickedFinal" :key="index" class="has-padding-bottom-5">
+              <span>Maintenence schedule: {{ day.date }}</span>
+              <a class="delete marginButton" @click="deleteDate(index)"></a>
+            </div>
           </div>
         </div>
-      </div>
+      </div>-->
+
+      <b-collapse
+        class="card has-margin-top-20"
+        aria-id="contentIdForA11y3"
+        v-if="markedDates.length > 0"
+      >
+        <div
+          slot="trigger"
+          slot-scope="props"
+          class="card-header"
+          role="button"
+          aria-controls="contentIdForA11y3"
+        >
+          <p class="card-header-title">Schedule</p>
+          <a class="card-header-icon">
+            <i class="fas fa-sort-down" :icon="props.open ? 'menu-down' : 'menu-up'" v-if="open == false"></i>
+           <!--  <b-icon :icon="props.open ? 'menu-down' : 'menu-up'"></b-icon> -->
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="content" v-for="(day, index) in datesPickedFinal" :key="index">
+            <span>Maintenence schedule: {{ day.date }}</span>
+            <a class="delete marginButton" @click="deleteDate(index)"></a>
+          </div>
+        </div>
+      </b-collapse>
+      <div style="height:100px; width:100%; clear:both;"></div>
     </div>
   </div>
 </template>
@@ -83,6 +101,16 @@
   overflow-x: auto;
   text-align: justify;
 }
+
+.marginButton {
+  margin-left: 15px;
+  margin-top: 3px;
+  background-color: #c20e0e;
+}
+
+.center {
+  text-align: center !important;
+}
 </style>
 
 <script>
@@ -94,11 +122,12 @@ import moment from "moment";
 export default {
   name: "calendar",
   components: {
-    navbar,
+    navbar, 
     FunctionalCalendar
   },
   data() {
     return {
+      open: false,
       calendarData: {},
       datePicker: false,
       datesPicked: [],
@@ -106,11 +135,10 @@ export default {
       markedDates: [],
       schedule: true,
       confirm: false,
-      days: [],
-      cont: 0,
-      flag: true,
-      today: moment().format('D/M/YYYY'),
-      max: moment().add(6,'months').format('D/M/YYYY')
+      today: moment().format("D/M/YYYY"),
+      max: moment()
+        .add(6, "months")
+        .format("D/M/YYYY")
     };
   },
 
@@ -139,7 +167,13 @@ export default {
       this.schedule = false;
     },
 
-    confirmFunc() {}
+    deleteDate(index) {
+      console.log(index);
+      this.datesPickedFinal.splice(index, 1);
+      this.markedDates.splice(index, 1);
+    },
+
+    
   }
 };
 </script>
