@@ -14,7 +14,7 @@
       </div>
 
       <div class="center">
-        <h5 class="subtitle is-4">{{ firstName }} {{lastName}}</h5>
+        <h5 class="subtitle is-4">{{ firstName }} {{ lastName }}</h5>
       </div>
 
       <div class="has-padding-top-20 center">
@@ -40,7 +40,6 @@
       </div>
 
       <div class="center is-flex-mobile">
-
         <input
           class="input is-rounded"
           type="text"
@@ -69,15 +68,20 @@
         <h5 class="subtitle is-4">Email</h5>
         <input
           class="input is-rounded"
-          type="text"
+          type="email"
           name="email"
           v-model="email"
         />
       </div>
       <div class="has-padding-top-30 center">
-        <button class="button is-link is-rounded" @click="saveProfile">
+        <button class="button is-spectrum_blue is-rounded" @click="saveProfile">
           Save
         </button>
+        <router-link :to="{ name: 'password' }">
+          <button class="button is-spectrum_blue is-rounded">
+            New Password
+          </button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -158,14 +162,15 @@ export default {
           email: this.email,
           phone: this.phone
         })
-        .then(res => {
-          console.log(res)
-        })
         .catch(err => {
           throw err;
         });
       this.editing = false;
     }
+  },
+
+  created() {
+    console.log(this.$store.state.user);
   }
 };
 </script>
