@@ -7,6 +7,7 @@ import Calendar from "../views/Calendar.vue";
 import Sensors from "../views/Sensors.vue";
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
+import Password from "../views/Password.vue";
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,11 @@ const routes = [
     path: "/signup",
     name: "signup",
     component: Signup
+  },
+  {
+    path: "/password",
+    name: "password",
+    component: Password
   }
 ];
 
