@@ -7,7 +7,7 @@
       </div>
       <h5 class="subtitle is-5">Report</h5>
       <div class="box">
-        <p>Number of security breachers: {{reports}}</p>
+        <p>Number of security breaches: {{reports}}</p>
       </div>
       <h5 class="subtitle is-5 has-padding-top-20">Offices</h5>
     </div>
