@@ -237,7 +237,7 @@ export default {
       office: {},
       hourLogs: [],
       showWeekNumber: false,
-      date: ""
+      date: new Date()
     };
   },
 
@@ -245,14 +245,12 @@ export default {
     filter() {
       this.hourLogs = [];
       for (let i = 0; i < this.office.logs.length; i++) {
-
-        console.log(moment(this.office.logs[i]).format("l"));
-
+        console.log(moment(this.office.logs[i]).format("l"))
+        if(moment(this.office.logs[i]).format("l") == moment(this.date).format("l"))
         this.hourLogs.push(this.office.logs[i].slice(11, 16));
       }
 
-      console.log(this.date.toLocaleString());
-      console.log(new Date());
+      console.log(moment(this.date).format("l"));
     }
   },
 
@@ -266,6 +264,8 @@ export default {
       .catch(err => {
         throw err;
       });
+
+      this.filter()
   }
 };
 </script>
