@@ -1,6 +1,6 @@
 <template>
   <div class="calendar">
-    <navbar/>
+    <navbar />
     <div class="margin">
       <div class="has-padding-top-30 has-padding-bottom-50 center">
         <h3 class="title is-4">Calendar</h3>
@@ -19,14 +19,16 @@
           type="is-spectrum_blue"
           v-if="schedule == true && confirm == false"
           @click="pickDate"
-        >Schedule Maintenance</b-button>
+          >Schedule Maintenance</b-button
+        >
       </center>
       <center>
         <b-button
           type="is-spectrum_blue"
           v-if="schedule == false && confirm == true"
           @click="pickDate"
-        >Confirm</b-button>
+          >Confirm</b-button
+        >
       </center>
       <!-- <div class="lineContainer noBar has-padding-top-20" v-if="markedDates.length > 0">
         <div class="card">
@@ -53,13 +55,18 @@
         >
           <p class="card-header-title">Schedule</p>
           <a class="card-header-icon">
-            <i class="fas fa-sort-down" :icon="props.open ? 'menu-down' : 'menu-up'" v-if="open == false"></i>
-           <!--  <b-icon :icon="props.open ? 'menu-down' : 'menu-up'"></b-icon> -->
+            <i
+              class="fas fa-sort-down"
+              :icon="props.open ? 'menu-down' : 'menu-up'"
+              v-if="open == false"
+            ></i>
+            <!--  <b-icon :icon="props.open ? 'menu-down' : 'menu-up'"></b-icon> -->
           </a>
         </div>
         <div class="card-content">
-          <div class="content" v-for="(day, index) in datesPickedFinal" :key="index">
-            <span>Maintenence schedule: {{ day.date }}</span>
+          <div class="content" v-for="(day, index) in markedDates" :key="index">
+            <!-- <span v-if="day.date">Maintenence schedule: {{ day.date }}</span> -->
+            <span>Maintenence schedule: {{ day }}</span>
             <a class="delete marginButton" @click="deleteDate(index)"></a>
           </div>
         </div>
@@ -118,11 +125,12 @@
 import navbar from "@/components/navbar.vue";
 import { FunctionalCalendar } from "vue-functional-calendar";
 import moment from "moment";
+import axios from "axios";
 
 export default {
   name: "calendar",
   components: {
-    navbar, 
+    navbar,
     FunctionalCalendar
   },
   data() {
@@ -133,6 +141,7 @@ export default {
       datesPicked: [],
       datesPickedFinal: [],
       markedDates: [],
+      schedules: [],
       schedule: true,
       confirm: false,
       today: moment().format("D/M/YYYY"),
@@ -142,9 +151,22 @@ export default {
     };
   },
 
-  created() {
-    console.log(this.max);
+  beforeCreate() {
+    axios
+      .get("http://localhost:3000/request/")
+      .then(res => {
+        this.schedules = res.data.content.requests;
+        this.markedDates = this.schedules.map(a => a.date);
+
+        console.log(this.markedDates);
+      })
+
+      .catch(error => {
+        console.log(error);
+      });
   },
+
+  mounted() {},
 
   methods: {
     pickDate() {
@@ -160,6 +182,24 @@ export default {
       }
       this.confirm = false;
       this.schedule = true;
+
+      console.log(this.datesPickedFinal);
+      for (let i = 0; i < this.datesPickedFinal.length; i++) {
+        axios
+          .post(
+            "http://localhost:3000/request/" + this.$store.state.user.companyId,
+            {
+              date: this.datesPickedFinal[i].date
+            }
+          )
+          .then(res => {
+            console.log("entrou");
+            console.log(res);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      }
     },
 
     dateClick() {
@@ -168,12 +208,21 @@ export default {
     },
 
     deleteDate(index) {
-      console.log(index);
-      this.datesPickedFinal.splice(index, 1);
-      this.markedDates.splice(index, 1);
-    },
+      //console.log(index);
 
-    
+      console.log(this.schedules[index]._id);
+      axios
+        .delete("http://localhost:3000/request/" + this.schedules[index]._id)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      this.datesPickedFinal.splice(index, 1);
+      this.datesPicked.splice(index, 1);
+      this.markedDates.splice(index, 1);
+    }
   }
 };
 </script>
