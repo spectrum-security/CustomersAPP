@@ -7,7 +7,7 @@
       </div>
 
       <div class="has-padding-bottom-20 center">
-        <img class="profilePic" src="../assets/profile-placeholder.jpg" />
+        <img class="profilePic" v-bind:src="avatarSrc" />
         <div class="bottom-right">
           <a @click="editProfile"><i class="fas fa-cog fa-2x"></i></a>
         </div>
@@ -130,6 +130,7 @@
 // @ is an alias to /src
 import navbar from "@/components/navbar.vue";
 import axios from "axios";
+import { mapState } from "vuex";
 
 export default {
   name: "profile",
@@ -143,7 +144,8 @@ export default {
       firstName: this.$store.state.user.name.first,
       lastName: this.$store.state.user.name.last,
       phone: this.$store.state.user.phone,
-      email: this.$store.state.user.email
+      email: this.$store.state.user.email,
+      avatarSrc: ""
     };
   },
 
@@ -171,6 +173,15 @@ export default {
 
   created() {
     console.log(this.$store.state.user);
+  },
+  computed:{
+    ...mapState(["user"])
+  },
+  watch: {
+    user() {
+      return (this.avatarSrc =
+       "https://api-spectrum.herokuapp.com/" + `files/image/${this.user.avatar}`);
+    }
   }
 };
 </script>
