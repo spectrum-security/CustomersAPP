@@ -29,9 +29,11 @@
               <strong>Last Maintenance:</strong>
               <p><time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time></p>
               <p>
+                <router-link :to="{ name: 'office', params: { sensorId: sensor._id } }">
                 <button class="button is-rounded is-spectrum_blue">
                   Show Activity
                 </button>
+                </router-link>
               </p>
             </div>
           </div>
