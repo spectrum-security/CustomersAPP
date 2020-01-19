@@ -89,7 +89,7 @@ export default {
   created() {
     axios
       .get(
-        "http://localhost:3000/sensors/company_sensors/5de942dadd70d113f7d666bd"
+        "http://localhost:3000/sensors/company_sensors/" + this.$store.state.user.companyId
       )
       .then(res => {
         this.offices = res.data.content.sensors;

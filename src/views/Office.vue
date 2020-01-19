@@ -1,52 +1,35 @@
 <template>
-<div class="office">
-  <navbar/>
-      <div class="has-padding-top-30 has-padding-bottom-50 center officeTitle">
-        <h3 class="title is-4">Second Floor </h3>
-      </div>
-      <div class="scrollmenu months noBar">
-  <button class="button is-rounded" v-for="month in months" :key="month">{{month}}</button>
-</div>
-
-<div class="scrollmenu noBar">
-  <a href="" v-for="day in days" :key="day">{{day}}</a>
-</div>
-<div class="margin lineContainer noBar">
-  <div class="timeline">
-
-    <div class="container left">
-      <div class="content">
-        <h2>21:20</h2>
-        <p><strong>Place:</strong> Office Atrium</p>
-        <p><strong>Type:</strong> Motion</p>
+  <div class="office">
+    <navbar />
+    <div class="has-padding-top-30 has-padding-bottom-50 center officeTitle">
+      <h3 class="title is-4">{{ office.location }}</h3>
+    </div>
+    <div class="months">
+      <section>
+        <b-field label="Select a date">
+          <b-datepicker
+            :show-week-number="showWeekNumber"
+            placeholder="Click to select..."
+            icon="calendar-today"
+            v-model="date"
+            @input="filter"
+          >
+          </b-datepicker>
+        </b-field>
+      </section>
+    </div>
+    <div class="margin lineContainer noBar">
+      <div class="timeline">
+        <div class="container left" v-for="log in hourLogs" :key="log">
+          <div class="content">
+            <h2>{{ log }}</h2>
+            <p v-if="office.sensorType == 1">Motion</p>
+          </div>
+        </div>
+        <div style="height:50px; width:100%; clear:both;"></div>
       </div>
     </div>
-
-       <div class="container left">
-      <div class="content">
-        <h2>21:20</h2>
-        <p><strong>Place:</strong> Office Atrium</p>
-        <p><strong>Type:</strong> Motion</p>
-      </div>
-    </div>
-       <div class="container left">
-      <div class="content">
-        <h2>21:20</h2>
-        <p><strong>Place:</strong> Office Atrium</p>
-        <p><strong>Type:</strong> Motion</p>
-      </div>
-    </div>
-       <div class="container left">
-      <div class="content">
-        <h2>21:20</h2>
-        <p><strong>Place:</strong> Office Atrium</p>
-        <p><strong>Type:</strong> Motion</p>
-      </div>
-    </div>
-    <div style="height:50px; width:100%; clear:both;"></div>
   </div>
-     </div>
-</div>
 </template>
 
 <style scoped>
@@ -240,6 +223,8 @@ div.scrollmenu a:hover {
 <script>
 // @ is an alias to /src
 import navbar from "@/components/navbar.vue";
+import axios from "axios";
+import moment from "moment";
 
 export default {
   name: "office",
@@ -249,27 +234,38 @@ export default {
 
   data: function() {
     return {
-      months: [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ],
-      days: []
+      office: {},
+      hourLogs: [],
+      showWeekNumber: false,
+      date: new Date()
     };
   },
-  beforeMount() {
-    for (var i = 1; i <= 31; i++) {
-      this.days.push(i);
+
+  methods: {
+    filter() {
+      this.hourLogs = [];
+      for (let i = 0; i < this.office.logs.length; i++) {
+        console.log(moment(this.office.logs[i]).format("l"))
+        if(moment(this.office.logs[i]).format("l") == moment(this.date).format("l"))
+        this.hourLogs.push(this.office.logs[i].slice(11, 16));
+      }
+
+      console.log(moment(this.date).format("l"));
     }
+  },
+
+  created() {
+    axios
+      .get("http://localhost:3000/sensors/" + this.$route.params.sensorId)
+      .then(res => {
+        this.office = res.data.sensor;
+        console.log(this.office);
+      })
+      .catch(err => {
+        throw err;
+      });
+
+      this.filter()
   }
 };
 </script>
