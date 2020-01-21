@@ -7,13 +7,13 @@
       </div>
       <h5 class="subtitle is-5">Report</h5>
       <div class="box">
-        <p>ola</p>
+        <p>Number of security breaches: {{reports}}</p>
       </div>
       <h5 class="subtitle is-5 has-padding-top-20">Offices</h5>
     </div>
     <div class="scrollmenu noBar">
       <router-link :to="{ name: 'office', params: { sensorId: office._id } }"  v-for="office in offices" :key="office._id">
-        <button>{{ office.location }}</button>
+        <button><span class="color">{{ office.location }}</span></button>
         </router-link>
     </div>
   </div>
@@ -68,6 +68,13 @@ button {
   background-repeat: no-repeat;
   border: none;
 }
+
+.color {
+  background-color: white;
+  padding: 5px;
+  font-weight: bold;
+
+}
 </style>
 
 <script>
@@ -82,17 +89,32 @@ export default {
   },
   data: function() {
     return {
-      offices: []
+      offices: [],
+      reports: 0
     };
   },
 
   created() {
     axios
       .get(
-        "http://localhost:3000/sensors/company_sensors/" + this.$store.state.user.companyId
+        "http://localhost:3000/sensors/company_sensors/" +
+          this.$store.state.user.companyId
       )
       .then(res => {
         this.offices = res.data.content.sensors;
+      })
+      .catch(err => {
+        throw err;
+      });
+
+    axios
+      .get("http://localhost:3000/logs/last_7_days", {
+        params: {
+          companyId: this.$store.state.user.companyId
+        }
+      })
+      .then(res => {
+        this.reports = res.data.totalRecords
       })
       .catch(err => {
         throw err;

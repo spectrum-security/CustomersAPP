@@ -76,7 +76,7 @@ export default {
     }
   },
   computed: {},
-  async beforeMount() {
+  async beforeCreate() {
     try {
       await this.initAuth();
     } catch (error) {
