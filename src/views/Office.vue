@@ -256,7 +256,7 @@ export default {
 
   created() {
     axios
-      .get("http://localhost:3000/sensors/" + this.$route.params.sensorId)
+      .get("https://api-spectrum.herokuapp.com/sensors/" + this.$route.params.sensorId)
       .then(res => {
         this.office = res.data.sensor;
         console.log(this.office);
