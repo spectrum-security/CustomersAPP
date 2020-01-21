@@ -97,7 +97,7 @@ export default {
   created() {
     axios
       .get(
-        "http://localhost:3000/sensors/company_sensors/" +
+        "https://api-spectrum.herokuapp.com/sensors/company_sensors/" +
           this.$store.state.user.companyId
       )
       .then(res => {
@@ -108,7 +108,7 @@ export default {
       });
 
     axios
-      .get("http://localhost:3000/logs/last_7_days", {
+      .get("https://api-spectrum.herokuapp.com/logs/last_7_days", {
         params: {
           companyId: this.$store.state.user.companyId
         }

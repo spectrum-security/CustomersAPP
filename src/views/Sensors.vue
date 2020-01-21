@@ -89,7 +89,7 @@ export default {
     getSensors() {
       axios
         .get(
-          "http://localhost:3000/sensors/company_sensors/" + this.$store.state.user.companyId
+          "https://api-spectrum.herokuapp.com/sensors/company_sensors/" + this.$store.state.user.companyId
         )
         .then(res => {
           this.sensors = res.data.content.sensors;

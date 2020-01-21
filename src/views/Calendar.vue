@@ -153,7 +153,7 @@ export default {
 
   beforeCreate() {
     axios
-      .get("http://localhost:3000/request/")
+      .get("https://api-spectrum.herokuapp.com/request/")
       .then(res => {
         this.schedules = res.data.content.requests;
         this.markedDates = this.schedules.map(a => a.date);

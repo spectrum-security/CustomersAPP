@@ -93,7 +93,7 @@ export default {
         let salt = bcrypt.genSaltSync(10);
         let hash = bcrypt.hashSync(this.password, salt);
         axios
-          .put("http://localhost:3000/users/" + this.$store.state.user._id, {
+          .put("https://api-spectrum.herokuapp.com/users/" + this.$store.state.user._id, {
             password: hash
           })
           .then(res => {

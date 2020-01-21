@@ -156,7 +156,7 @@ export default {
 
     saveProfile() {
       axios
-        .put("http://localhost:3000/users/" + this.$store.state.user._id, {
+        .put("https://api-spectrum.herokuapp.com/users/" + this.$store.state.user._id, {
           name: {
             first: this.firstName,
             last: this.lastName

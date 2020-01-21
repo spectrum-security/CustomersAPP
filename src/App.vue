@@ -12,7 +12,7 @@
 import {getJwt, clearJwt, clearUser, setUser} from "./jwt.js"
 import axios from "axios"
 
-axios.defaults.baseURL = "http://localhost:3000/";
+axios.defaults.baseURL = "https://api-spectrum.herokuapp.com/";
 
 export default {
   data() {
