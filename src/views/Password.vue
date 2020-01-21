@@ -20,17 +20,19 @@
         <h5 class="subtitle is-4">Confirm Password</h5>
         <input
           class="input is-rounded"
-          type="pass2"
+          type="password"
           v-model="confirm"
         />
       </div>
-      <div v-if="notsame"><center><p>The passwords are not the same</p></center></div>
+      <div v-if="notsame"><center><p class="red">The passwords are not the same</p></center></div>
       <div class="has-padding-top-30 center">
         <button class="button is-spectrum_blue is-rounded" @click="saveProfile">
           Save
         </button>
+      <div v-if="changed"><center><p class="green">The Password has been changed </p></center></div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -56,8 +58,11 @@
   color: rgba(0, 0, 0, 0.35);
 }
 
-p{
+.red {
   color: red;
+}
+.green {
+  color: green;
 }
 </style>
 
@@ -78,6 +83,7 @@ export default {
       password: "",
       confirm: "",
       notsame: false,
+      changed: false
     };
   },
 
@@ -91,8 +97,9 @@ export default {
             password: hash
           })
           .then(res => {
-            console.log(res)
-            console.log(hash);
+            console.log(res);
+            this.changed = true
+            this.notsame = false
           })
           .catch(err => {
             throw err;
