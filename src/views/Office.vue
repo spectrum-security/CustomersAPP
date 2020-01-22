@@ -2,7 +2,7 @@
   <div class="office">
     <navbar />
     <div class="has-padding-top-30 has-padding-bottom-50 center officeTitle">
-      <h3 class="title is-4">{{ office.location }}</h3>
+      <h3 class="title is-4">{{ title.location }}</h3>
     </div>
     <div class="months">
       <section>
@@ -23,7 +23,7 @@
         <div class="container left" v-for="log in hourLogs" :key="log">
           <div class="content">
             <h2>{{ log }}</h2>
-            <p v-if="office.sensorType == 1">Motion</p>
+            <p v-if="title.sensorType == 1">Motion</p>
           </div>
         </div>
         <div style="height:50px; width:100%; clear:both;"></div>
@@ -237,7 +237,8 @@ export default {
       office: {},
       hourLogs: [],
       showWeekNumber: false,
-      date: new Date()
+      date: new Date(),
+      title: ""
     };
   },
 
@@ -245,9 +246,13 @@ export default {
     filter() {
       this.hourLogs = [];
       for (let i = 0; i < this.office.logs.length; i++) {
-        console.log(moment(this.office.logs[i]).format("l"))
-        if(moment(this.office.logs[i]).format("l") == moment(this.date).format("l"))
-        this.hourLogs.push(this.office.logs[i].slice(11, 16));
+        //console.log(moment(this.office.logs[i]).format("l"))
+        console.log(this.office.logs[i].started);
+        if (
+          moment(this.office.logs[i].started).format("l") ==
+          moment(this.date).format("l")
+        )
+          this.hourLogs.push(this.office.logs[i].started.slice(11, 16));
       }
 
       console.log(moment(this.date).format("l"));
@@ -256,16 +261,29 @@ export default {
 
   created() {
     axios
-      .get("https://api-spectrum.herokuapp.com/sensors/" + this.$route.params.sensorId)
+      .get("https://api-spectrum.herokuapp.com/logs/" + this.$route.params.sensorId)
       .then(res => {
-        this.office = res.data.sensor;
+        this.office = res.data.content;
         console.log(this.office);
       })
       .catch(err => {
         throw err;
       });
 
-      this.filter()
+    axios
+      .get(
+        "https://api-spectrum.herokuapp.com/sensors/" +
+          this.$route.params.sensorId
+      )
+      .then(res => {
+        this.title = res.data.sensor;
+        console.log(this.office);
+      })
+      .catch(err => {
+        throw err;
+      });
+
+    this.filter();
   }
 };
 </script>
