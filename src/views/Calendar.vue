@@ -187,7 +187,7 @@ export default {
       for (let i = 0; i < this.datesPickedFinal.length; i++) {
         axios
           .post(
-            "http://localhost:3000/request/" + this.$store.state.user.companyId,
+            "https://api-spectrum.herokuapp.com/request/" + this.$store.state.user.companyId,
             {
               date: this.datesPickedFinal[i].date
             }
@@ -212,7 +212,7 @@ export default {
 
       console.log(this.schedules[index]._id);
       axios
-        .delete("http://localhost:3000/request/" + this.schedules[index]._id)
+        .delete("https://api-spectrum.herokuapp.com/request/" + this.schedules[index]._id)
         .then(res => {
           console.log(res);
         })
