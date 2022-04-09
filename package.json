@@ -15,7 +15,7 @@
     "bulma-helpers": "^0.3.8",
     "core-js": "^3.4.3",
     "font-awesome": "^4.7.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "node-sass": "^4.13.0",
     "register-service-worker": "^1.6.2",
     "sass-loader": "^8.0.0",
